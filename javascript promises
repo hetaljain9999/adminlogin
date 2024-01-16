@@ -1,0 +1,59 @@
+console.log('Person 1: show ticket');
+console.log('Person 2: show ticket');
+//const wifeBringTicket = new Promise((resolve, reject) =>
+{
+    setTimeout(()=>{
+        resolve('ticket')
+    },3000)
+//});
+//const getPromise = wifeBringTicket.then((t)=>{
+  //  console.log('I have tickets');
+    //console.log('You should go in');
+    //console.log('no, I am hungry');
+    //return new Promise((resolve, reject)=>
+      //  resolve('${t} popcorn')
+    //);
+//});
+
+//const getButter = getPromise.then((t)=>{
+   // console.log('i got some pocorn');
+    //console.log("We should go in");
+    //console.log('no, I need butter');
+ //return new Promise((resolve, reject)=>resolve('${t} butter'));
+//});
+//getButter.then((t)=> console.log('t'));
+
+
+}
+
+// use of Async await 
+const preMovie = async ()=>
+{
+    const wifeBringTicket = new Promise((resolve, reject)=>{
+        setTimeout(()=>
+            resolve('ticket')
+        , 3000);
+    });
+    const getPopcorn = new Promise((resolve, reject)=> resolve('popcorn'));
+    const getButter = new Promise((resolve, reject)=> resolve('butter'));
+    const getCandy = new Promise((resolve, reject)=> resolve('candy'));
+    let ticket = await wifeBringTicket;
+    console.log('i have ticket');
+    console.log('should we go');
+    console.log('i need butter');
+    
+    let popcorn = await getPopcorn;
+    console.log("Happy...");
+    console.log('but i need butter');
+
+     let butter = await getButter;
+     console.log('yayyyyy');
+     console.log('lets go for the movie ');
+
+     let candy = await getCandy;
+     console.log('its yummy');
+
+     let = await Promise.all([getPopcorn, getButter, getCandy]);
+     return ticket;
+}
+preMovie().then((m)=> console.log(m));
